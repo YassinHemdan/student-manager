@@ -1,0 +1,81 @@
+<div *ngIf="student; else notFound">
+  <h2 class="mb-3">🎓 Student Details</h2>
+
+  <div class="card col-md-6">
+    <div class="card-body">
+      <table class="table table-striped mb-0">
+        <tr>
+          <th>ID</th>
+          <td>{{ student.id }}</td>
+        </tr>
+        <tr>
+          <th>Full Name</th>
+          <td>{{ student.firstName }} {{ student.lastName }}</td>
+        </tr>
+        <tr>
+          <th>Age</th>
+          <td>{{ student.age }}</td>
+        </tr>
+        <tr>
+          <th>Gender</th>
+          <td>{{ student.gender }}</td>
+        </tr>
+        <tr>
+          <th>Email</th>
+          <td>{{ student.email }}</td>
+        </tr>
+        <tr>
+          <th>Phone</th>
+          <td>{{ student.phone }}</td>
+        </tr>
+        <tr>
+          <th>Address</th>
+          <td>{{ student.address }}</td>
+        </tr>
+        <tr>
+          <th>City</th>
+          <td>{{ student.city }}</td>
+        </tr>
+        <tr>
+          <th>Country</th>
+          <td>{{ student.country }}</td>
+        </tr>
+        <tr>
+          <th>Department</th>
+          <td>{{ student.department }}</td>
+        </tr>
+        <tr>
+          <th>Level</th>
+          <td>{{ student.level }}</td>
+        </tr>
+        <tr>
+          <th>GPA</th>
+          <td>{{ student.GPA }}</td>
+        </tr>
+        <tr>
+          <th>Enrollment Date</th>
+          <td>{{ student.enrollmentDate }}</td>
+        </tr>
+        <tr>
+          <th>Status</th>
+          <td>
+            <span *ngIf="student.isActive" class="badge bg-success">Active</span>
+            <span *ngIf="!student.isActive" class="badge bg-danger">Inactive</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <button class="btn btn-primary mt-3" (click)="goBack()">
+    ← Back to Students
+  </button>
+</div>
+
+<ng-template #notFound>
+  <div class="alert alert-danger mt-3">
+    <h4>❌ Student Not Found</h4>
+    <p>The student with this ID does not exist.</p>
+    <button class="btn btn-primary" (click)="goBack()">← Back to Students</button>
+  </div>
+</ng-template>

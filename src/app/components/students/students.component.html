@@ -1,0 +1,21 @@
+<h2 class="mb-3">📋 All Students</h2>
+
+<div *ngIf="students.length > 0; else noStudents">
+  <app-student-table
+    [students]="students"
+    (viewStudent)="onViewStudent($event)"
+    (deleteStudent)="onDeleteStudent($event)"
+  ></app-student-table>
+</div>
+
+<ng-template #noStudents>
+  <div class="alert alert-warning">No students found. Add one!</div>
+</ng-template>
+
+<button
+  class="btn btn-success mt-3"
+  [disabled]="students.length === 0"
+  routerLink="/add-student"
+>
+  + Add New Student
+</button>

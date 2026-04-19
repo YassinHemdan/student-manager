@@ -1,0 +1,34 @@
+<table class="table table-bordered table-hover text-center">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Department</th>
+      <th>GPA</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <td>{{ student.id }}</td>
+      <td>{{ student.firstName }} {{ student.lastName }}</td>
+      <td>{{ student.age }}</td>
+      <td>{{ student.department }}</td>
+      <td>{{ student.GPA }}</td>
+      <td>
+        <span *ngIf="student.isActive" class="badge bg-success">Active</span>
+        <span *ngIf="!student.isActive" class="badge bg-danger">Inactive</span>
+      </td>
+      <td>
+        <button class="btn btn-primary btn-sm me-1" (click)="onView(student.id)">
+          👁 View
+        </button>
+        <button class="btn btn-danger btn-sm" (click)="onDelete(student.id)">
+          🗑 Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
